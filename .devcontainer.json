@@ -1,0 +1,41 @@
+{
+    "name": "rust-p2p-app-devcontainer",
+    "build": {
+        "dockerfile": "./docker/Dockerfile",
+        "context": "."
+    },
+    "workspaceFolder": "/var/app",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/var/app,type=bind,consistency=cached",
+    "remoteUser": "app",
+    "containerEnv": {
+        "BASH_ENV": "/etc/profile"
+    },
+    "mounts": [
+        "source=rustup-cache,target=/usr/local/rustup,type=volume",
+        "source=cargo-registry,target=/usr/local/cargo/registry,type=volume",
+        "source=cargo-git,target=/usr/local/cargo/git,type=volume"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "rust-lang.rust-analyzer",
+                "tamasfe.even-better-toml",
+                "serayuzgur.crates",
+                "vadimcn.vscode-lldb",
+                "ms-vscode.makefile-tools",
+                "editorconfig.editorconfig"
+            ],
+            "settings": {
+                "rust-analyzer.checkOnSave.command": "clippy",
+                "editor.formatOnSave": true,
+                "files.watcherExclude": {
+                    "**/target/**": true
+                }
+            }
+        }
+    },
+    "runArgs": [
+        "--rm"
+    ],
+    "postCreateCommand": "rustup component add rustfmt clippy || true"
+}

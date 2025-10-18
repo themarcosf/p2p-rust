@@ -1,0 +1,5 @@
+# Environment Variables
+.env
+
+# OS
+.DS_Store
