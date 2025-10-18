@@ -20,7 +20,6 @@
             "extensions": [
                 "rust-lang.rust-analyzer",
                 "tamasfe.even-better-toml",
-                "serayuzgur.crates",
                 "vadimcn.vscode-lldb",
                 "ms-vscode.makefile-tools",
                 "editorconfig.editorconfig"
@@ -37,5 +36,5 @@
     "runArgs": [
         "--rm"
     ],
-    "postCreateCommand": "rustup component add rustfmt clippy || true"
+    "postCreateCommand": "rustup component add rustfmt clippy && chmod +x /var/app/run.sh || true"
 }

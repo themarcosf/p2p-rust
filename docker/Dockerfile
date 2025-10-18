@@ -34,5 +34,13 @@ COPY --chown=app:app src $PROJECT_ROOT/src
 # Switch to app user
 USER app
 
+### Rust setup ################################################################
+
+# Ensure cargo bin is on PATH
+ENV PATH="/usr/local/cargo/bin:${PATH}"
+
+# Install Rust binary crates
+RUN cargo install --locked evcxr_repl@0.21.1
+
 # Set default profile to DEV
 ENV PROFILE=DEV

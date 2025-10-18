@@ -1,5 +1,8 @@
 # Environment Variables
 .env
 
+# Rust
+src/**/target
+
 # OS
 .DS_Store
