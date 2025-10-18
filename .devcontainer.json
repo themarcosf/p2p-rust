@@ -25,7 +25,12 @@
                 "editorconfig.editorconfig"
             ],
             "settings": {
-                "rust-analyzer.checkOnSave.command": "clippy",
+                "rust-analyzer.check": {
+                    "command": "clippy"
+                },
+                "rust-analyzer.linkedProjects": [
+                    "src/chat/Cargo.toml"
+                ],
                 "editor.formatOnSave": true,
                 "files.watcherExclude": {
                     "**/target/**": true

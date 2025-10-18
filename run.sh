@@ -11,18 +11,13 @@ Run the application or perform various tasks.
 
 OPTIONS:
     --help                          Show this help message
+    --check                         Check if the application compiles without building (syntax check)
+    --build                         Build the application without running (output binary in target/)
     --run                           Run the application
-    --tests                         Run the tests using cargo
+    --tests                         Run the tests
     --shell                         Access the Rust REPL
 
 EOF
-}
-
-# Run application
-function run_application(){
-    echo "Starting application..."
-    cd /var/app/src/libp2p_intro || { echo "Failure: /var/app/src/libp2p_intro dir does not exist."; exit 10; }
-    cargo run
 }
 
 # Change to the project root directory and handle failure
@@ -37,8 +32,24 @@ case $1 in
         show_help
     ;;
 
+    --check)
+        echo "Checking application..."
+        cd /var/app/src/chat || { echo "Failure: /var/app/src/chat dir does not exist."; exit 10; }
+        cargo check
+    ;;
+
+    --build)
+        echo "Building application..."
+        cd /var/app/src/chat || { echo "Failure: /var/app/src/chat dir does not exist."; exit 10; }
+        cargo build
+    ;;
+
     --run)
-        run_application
+        export CHAT_P2P_PORT=9999
+        export CHAT_PEER=/ip4/127.0.0.1/tcp/8888
+        echo "Starting application..."
+        cd /var/app/src/chat || { echo "Failure: /var/app/src/chat dir does not exist."; exit 10; }
+        cargo run
     ;;
 
     --tests)
