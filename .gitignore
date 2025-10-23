@@ -2,7 +2,7 @@
 .env
 
 # Rust
-src/**/target
+**/target
 
 # OS
 .DS_Store

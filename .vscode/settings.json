@@ -1,6 +1,7 @@
 {
     "[rust]": {
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "editor.inlayHints.enabled": "off"
     },
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,

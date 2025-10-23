@@ -1,0 +1,5 @@
+[workspace]
+members = ["src/*"]
+resolver = "2"
+
+# exclude = ["src/scripts", "src/assets"]

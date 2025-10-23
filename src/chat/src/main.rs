@@ -24,13 +24,19 @@ struct ChatBehaviour {
     messaging: json::Behaviour<MessageRequest, MessageResponse>,
 }
 
+/// The async entry point that runs inside the Tokio runtime, and uses anyhow for ergonomic error handling.
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
-    let port = std::env::var("CHAT_P2P_PORT")
+    let port: u16 = std::env::var("CHAT_P2P_PORT")
         .unwrap_or(String::from("9999"))
         .parse::<u16>()?;
+
     let peer: Multiaddr = std::env::var("CHAT_PEER")?.parse()?;
 
+    // Create a Swarm to manage
+    //   - networking connections (who to connect to)
+    //   - protocols (how peers communicate)
+    //   - events (what happens when a message is received, a connection is established, etc)
     let mut swarm = libp2p::SwarmBuilder::with_new_identity()
         .with_tokio()
         .with_tcp(
@@ -62,6 +68,7 @@ async fn main() -> anyhow::Result<()> {
 
     let mut target_peer_id = None;
 
+    // The swarm runs in a loop, listening for events and handling them as they occur.
     loop {
         select! {
             event = swarm.select_next_some() => match event {

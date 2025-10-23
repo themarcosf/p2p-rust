@@ -25,16 +25,26 @@
                 "editorconfig.editorconfig"
             ],
             "settings": {
+                "editor.formatOnSave": true,
+                "editor.inlayHints.enabled": "off",
+                "files.watcherExclude": {
+                    "**/target/**": true
+                },
                 "rust-analyzer.check": {
                     "command": "clippy"
                 },
-                "rust-analyzer.linkedProjects": [
-                    "src/chat/Cargo.toml"
-                ],
-                "editor.formatOnSave": true,
-                "files.watcherExclude": {
-                    "**/target/**": true
-                }
+                "rust-analyzer.inlayHints.enable": false,
+                "rust-analyzer.inlayHints.bindingModeHints.enable": false,
+                "rust-analyzer.inlayHints.chainingHints.enable": false,
+                "rust-analyzer.inlayHints.closingBraceHints.enable": false,
+                "rust-analyzer.inlayHints.discriminantHints.enable": "never",
+                "rust-analyzer.inlayHints.expressionAdjustmentHints.enable": "never",
+                "rust-analyzer.inlayHints.genericParameterHints.enable": "never",
+                "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "never",
+                "rust-analyzer.inlayHints.parameterHints.enable": false,
+                "rust-analyzer.inlayHints.reborrowHints.enable": "never",
+                "rust-analyzer.inlayHints.typeHints.enable": false,
+                "rust-analyzer.lens.enable": false
             }
         }
     },
