@@ -43,7 +43,6 @@
                 "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "never",
                 "rust-analyzer.inlayHints.parameterHints.enable": false,
                 "rust-analyzer.inlayHints.reborrowHints.enable": "never",
-                "rust-analyzer.inlayHints.typeHints.enable": false,
                 "rust-analyzer.lens.enable": false
             }
         }
