@@ -1,5 +1,3 @@
-> https://rust-lang.github.io/async-book/
-
 > https://tokio.rs/tokio/tutorial/spawning#tasks
 
 > CPU-bound computations in parallel: https://docs.rs/rayon/latest/rayon/

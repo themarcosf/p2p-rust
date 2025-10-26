@@ -356,6 +356,9 @@ dependencies = [
 [[package]]
 name = "asynchronous"
 version = "0.1.0"
+dependencies = [
+ "tokio",
+]
 
 [[package]]
 name = "asynchronous-codec"
