@@ -1,3 +1,6 @@
+> https://doc.rust-lang.org/cargo/
+> https://doc.rust-lang.org/std/prelude/index.html
+
 > https://tokio.rs/tokio/tutorial/spawning#tasks
 
 > CPU-bound computations in parallel: https://docs.rs/rayon/latest/rayon/

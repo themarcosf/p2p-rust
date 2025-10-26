@@ -12,8 +12,9 @@ Run the application or perform various tasks.
 OPTIONS:
     --help                          Show this help message
     --check                         Check if the application compiles without building (syntax check)
-    --build                         Build the application without running (output binary in target/)
-    --run                           Run the application
+    --build                         Build the application without running
+    --release                       Build the application in release mode
+    --run                           Build and run the application in development mode
     --tests                         Run the tests
     --shell                         Access the Rust REPL
 
@@ -32,23 +33,29 @@ case $1 in
         show_help
     ;;
 
-    --check)
-        echo "Checking application..."
-        cd /var/app/src/chat || { echo "Failure: /var/app/src/chat dir does not exist."; exit 10; }
-        cargo check
-    ;;
-
     --build)
         echo "Building application..."
-        cd /var/app/src/chat || { echo "Failure: /var/app/src/chat dir does not exist."; exit 10; }
+        cd /var/app/src/project || { echo "Failure: /var/app/src/project dir does not exist."; exit 10; }
         cargo build
     ;;
 
+    --check)
+        echo "Checking application..."
+        cd /var/app/src/project || { echo "Failure: /var/app/src/project dir does not exist."; exit 10; }
+        cargo check
+    ;;
+
+    --release)
+        echo "Building application for release..."
+        cd /var/app/src/project || { echo "Failure: /var/app/src/project dir does not exist."; exit 10; }
+        cargo build --release
+    ;;
+
     --run)
-        export CHAT_P2P_PORT=9999
-        export CHAT_PEER=/ip4/127.0.0.1/tcp/8888
+        # export CHAT_P2P_PORT=9999
+        # export CHAT_PEER=/ip4/127.0.0.1/tcp/8888
         echo "Starting application..."
-        cd /var/app/src/chat || { echo "Failure: /var/app/src/chat dir does not exist."; exit 10; }
+        cd /var/app/src/project || { echo "Failure: /var/app/src/project dir does not exist."; exit 10; }
         cargo run
     ;;
 

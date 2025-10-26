@@ -1,5 +1,5 @@
 {
-    "name": "rust-p2p-app-devcontainer",
+    "name": "project-app-devcontainer",
     "build": {
         "dockerfile": "./docker/Dockerfile",
         "context": "."
@@ -40,9 +40,7 @@
                 "rust-analyzer.inlayHints.discriminantHints.enable": "never",
                 "rust-analyzer.inlayHints.expressionAdjustmentHints.enable": "never",
                 "rust-analyzer.inlayHints.genericParameterHints.enable": "never",
-                "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "never",
                 "rust-analyzer.inlayHints.parameterHints.enable": false,
-                "rust-analyzer.inlayHints.reborrowHints.enable": "never",
                 "rust-analyzer.lens.enable": false
             }
         }
