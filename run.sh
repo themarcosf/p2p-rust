@@ -15,8 +15,9 @@ OPTIONS:
     --build                         Build the application without running
     --release                       Build the application in release mode
     --run                           Build and run the application in development mode
-    --tests                         Run the tests
     --shell                         Access the Rust REPL
+    --tests                         Run the tests
+    --update                        Update project dependencies
 
 EOF
 }
@@ -59,12 +60,18 @@ case $1 in
         cargo run
     ;;
 
+    --shell)
+        evcxr
+    ;;
+
     --tests)
         echo "To be implemented..."
     ;;
 
-    --shell)
-        evcxr
+    --update)
+        echo "Updating dependencies..."
+        cd /var/app/src/project || { echo "Failure: /var/app/src/project dir does not exist."; exit 10; }
+        cargo update
     ;;
 
     *)
